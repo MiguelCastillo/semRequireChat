@@ -1,0 +1,23 @@
+{
+  "name": "semRequireChat",
+  "version": "0.0.1",
+  "homepage": "https://github.com/MiguelCastillo/semRequireChat",
+  "authors": [
+    "Miguel Castillo <manchagnu@gmail.com>"
+  ],
+  "description": "SEM.js Modules & Dependencies with RequireJS Chat",
+  "main": "main.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "",
+    "jquery": ""
+  }
+}

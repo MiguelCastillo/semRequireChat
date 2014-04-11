@@ -1,0 +1,11 @@
+.chat {
+}
+
+.chat .container {
+  width: 100%;
+}
+
+.chat .messages {
+  text-align: center;
+  width: 100%;
+}
