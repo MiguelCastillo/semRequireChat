@@ -7,12 +7,22 @@
     <title>semRequireChat</title>
 
     <style>
+      html, body{
+        padding: 0px;
+        margin: 0px;
+      }
+
       .chat {
+        font-family: sans-serif;
       }
 
       .chat table {
         border-collapse:collapse;
         width:100%;
+      }
+
+      .chat table td {
+        padding: 4px 10px;
       }
 
       .chat table tr:nth-child(odd)  {
@@ -23,7 +33,7 @@
         background-color:#ffffff;
       }
 
-      .chat table th{
+      .chat table th {
         color:#ffffff;
         background-color:#555555;
         border:1px solid #555555;
@@ -51,7 +61,6 @@
       <thead>
         <tr>
           <th class="message">Message</th>
-          <th class="timestamp">Time</th>
           <th class="avatar">Avatar</th>
         </tr>
       </thead>

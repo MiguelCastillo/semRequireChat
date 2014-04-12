@@ -2,6 +2,7 @@ define(function() {
 
   Chat.remotehost = "semrequirejs.herokuapp.com";
 
+
   function Chat(options) {
     options = options || {};
     if ( options instanceof jQuery ) {
@@ -17,7 +18,7 @@ define(function() {
 
 
   Chat.prototype.send = function(message, from, to) {
-    $.ajax({
+    return $.ajax({
       "method": "POST",
       "url": "http://" + Chat.remotehost + "/message",
       "contentType": "application/json",
@@ -25,12 +26,12 @@ define(function() {
       "data": JSON.stringify({"message": message, "from": from, "to": to}),
       "context": this
     })
-    .done(loadMessage);
+    .done(this.loadMessage);
   };
 
 
   Chat.prototype.get = function(id) {
-    $.ajax({
+    return $.ajax({
       "method": "GET",
       "url": "http://" + Chat.remotehost + "/messages/" + id,
       "contentType": "application/json",
@@ -40,14 +41,14 @@ define(function() {
       this.$messages.empty();
       var i, length;
       for( i = 0, length = messages.length; i < length; i++ ) {
-        loadMessage.call(this, messages[i]);
+        this.loadMessage(messages[i]);
       }
     });
   };
 
 
   Chat.prototype.getAll = function() {
-    $.ajax({
+    return $.ajax({
       "method": "GET",
       "url": "http://" + Chat.remotehost + "/messages",
       "contentType": "application/json",
@@ -57,44 +58,43 @@ define(function() {
       this.$messages.empty();
       var i, length;
       for( i = 0, length = messages.length; i < length; i++ ) {
-        loadMessage.call(this, messages[i]);
+        this.loadMessage(messages[i]);
       }
     });
   };
 
 
   Chat.prototype.clear = function(id) {
-    $.ajax({
+    return $.ajax({
       "method": "DELETE",
       "url": "http://" + Chat.remotehost + "/messages/" + id,
       "context": this
     })
-    .done(loadMessage);
+    .done(this.loadMessage);
   };
 
 
   Chat.prototype.clearAll = function() {
-    $.ajax({
+    return $.ajax({
       "method": "DELETE",
       "url": "http://" + Chat.remotehost + "/messages",
       "context": this
     })
-    .done(loadMessage);
+    .done(this.loadMessage);
   };
 
 
-  function loadMessage(data) {
+  Chat.prototype.getPicture = function (email) {
+    return 'http://www.gravatar.com/avatar/' + hex_md5(email) + '?s=35';
+  };
+
+
+  Chat.prototype.loadMessage = function (message) {
     var $message = $("<tr>");
-    $message.append("<td>" + data.message + "</td>");
-    $message.append("<td>" + (new Date(data.created)).toDateString() + "</td>");
-    $message.append("<td><img src='" + pictue(data.from || "") + "'></img></td>");
+    $message.append("<td>" + message.message + "</td>");
+    $message.append("<td><img src='" + this.getPicture(message.from || "") + "'></img></td>");
     $message.appendTo(this.$messages);
-  }
-
-
-  function pictue(from) {
-    return 'http://www.gravatar.com/avatar/' + hex_md5(from) + '?s=35';
-  }
+  };
 
 
   return Chat;
