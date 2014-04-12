@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>semRequireChat</title>
+
+    <style>
+      .chat {
+      }
+
+      .chat table {
+        border-collapse:collapse;
+        width:100%;
+      }
+
+      .chat table tr:nth-child(odd)  {
+        background-color:#f1f1f1;
+      }
+
+      .chat table tr:nth-child(even) {
+        background-color:#ffffff;
+      }
+
+      .chat table th{
+        color:#ffffff;
+        background-color:#555555;
+        border:1px solid #555555;
+        padding:3px;
+        vertical-align:top;
+        text-align:left;
+      }
+    </style>
+
+
+
+    <!--
+      1. Make sure we load requirejs
+      2. Load up requirejs configuration file
+      3. Then load the main module with requirejs
+    -->
+    <script src="libs/requirejs/require.js"></script>
+    <script src="requirejs-config.js"></script>
+    <script>require(["main"]);</script>
+  </head>
+
+
+  <body>
+    <table class="container">
+      <thead>
+        <tr>
+          <th class="message">Message</th>
+          <th class="timestamp">Time</th>
+          <th class="avatar">Avatar</th>
+        </tr>
+      </thead>
+      <tbody class="messages">
+      </tbody>
+    </table>
+  </body>
+</html>
