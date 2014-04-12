@@ -30,4 +30,4 @@ Instruction
 5. Import the chat module.
 6. Create a chat module instance. <code>new Chat();</code>
 7. Send a message with the <code>send</code> interface.
-8. Level up by reading and display all the messages using the <code>getAll</code> interface.
+8. Level up by reading and displaying all the messages using the <code>getAll</code> interface.
