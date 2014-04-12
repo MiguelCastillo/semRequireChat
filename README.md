@@ -13,7 +13,7 @@ So, why does this even exist?  The purpose is really to let folks get aquainted 
 
 Chat API
 ==============
-1. <code>Chat</code> is a constructure that optionally takes in a jQuery instance. You don't need to pass anything in, unless you intend to customize where the chat module writes messages to.  Instantiate with a code like <code>var chat = new Chat();</code>. Located in <code>common/js/</code>.
+1. <code>Chat</code> is a constructor that optionally takes in a jQuery instance. You don't need to pass anything in, unless you intend to customize where the chat module writes messages to.  Instantiate with a code like <code>var chat = new Chat();</code>. Located in <code>common/js/</code>.
 2. <code>send</code> is an interface that takes in a message as the first parameter and optionally an email address as the second one.  The email address is only used to resolve your picture from avatar.com.
 3. <code>get</code> interface that takes in an ID and returns a particular message.
 4. <code>getAll</code> interface that returns all messages in the system.
