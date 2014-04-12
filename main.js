@@ -1,9 +1,9 @@
 define([
-  "client/js/chat"
+  "common/js/chat"
 ], function( Chat ) {
 
   var chat = new Chat();
-  chat.send("Hello", "World");
+  chat.send("Hello", "manchagnu@gmail.com");
 
 });
 

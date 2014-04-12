@@ -2,15 +2,11 @@
 requirejs.config({
   paths: {
     "jquery": "libs/jquery/dist/jquery",
-    "text": "libs/js/require.text",
-    "css": "libs/js/require.css"
+    "md5": "libs/js/md5"
   },
   "shim": {
     "main": {
-      deps: ["client/js/cachebuster"]
-    },
-    "client/js/cachebuster": {
-      deps: ["jquery"]
+      deps: ["jquery", "md5"]
     }
   }
 });
