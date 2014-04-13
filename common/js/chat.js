@@ -91,8 +91,8 @@ define(function() {
 
   Chat.prototype.loadMessage = function (message) {
     var $message = $("<tr>");
-    $message.append("<td>" + message.message + "</td>");
-    $message.append("<td><img src='" + this.getPicture(message.from || "") + "'></img></td>");
+    $message.append("<td class='message'>" + message.message + "</td>");
+    $message.append("<td class='from'><img src='" + this.getPicture(message.from || "") + "'></img></td>");
     $message.appendTo(this.$messages);
   };
 
